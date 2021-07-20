@@ -6,6 +6,11 @@ const app = express()
 const port = 8081
 
 app.use(express.json())
+app.use((req, res, next) => {
+    res.header("Access-Control-Allow-Origin", "http://localhost:3000"); // update to match the domain you will make the request from
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+    next();
+})
 
 connect('mongodb://root:products@127.0.0.1:27017/admin',
     {
