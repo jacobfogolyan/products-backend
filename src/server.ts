@@ -1,5 +1,6 @@
 import express from 'express'
 import { connect } from 'mongoose'
+import productsRoute from '@routes/productsRoute'
 
 const app = express()
 const port = 8081
@@ -12,6 +13,8 @@ connect('mongodb://root:products@127.0.0.1:27017/admin',
         useUnifiedTopology: true
     }
 )
+
+app.use(productsRoute)
 
 app.listen(port, () => {
     console.log(`Server is Running on port ${port}`)
