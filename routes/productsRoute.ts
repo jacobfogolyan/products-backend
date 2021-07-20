@@ -1,5 +1,5 @@
 import express, { Request, Response } from 'express'
-import { createProduct } from '@model/products'
+import { createProduct, readProducts } from '@model/products'
 
 const app = express()
 
@@ -13,8 +13,12 @@ app.post('/create', (req: Request, res: Response) => {
 })
 
 app.get('/read', (req: Request, res: Response) => {
-    // readProduct
-    throw new Error('Method Not implemented')
+    const filter = req.body
+    readProducts({ ...(filter ? filter: {}) }).then(allProducts => {
+        res.status(200).send(allProducts)
+    }).catch(err => {
+        res.status(500).send(err)
+    })
 })
 
 app.put('/update', (req: Request, res: Response) => {

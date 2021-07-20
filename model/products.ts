@@ -20,16 +20,15 @@ export function createProduct (name: string, size: number, material: string, col
     })
 }
 
-export function readProductById (id: number): Promise<Product> {
+export function readProducts (filter?: any): Promise<Product> {
     return new Promise<Product>(async (resolve, reject) => {
-        productModel.findById(id).then((res) => {
+        productModel.find({ ...(filter ? filter: {})}).then((res) => {
             resolve(res)
         }).catch(err => {
             reject(err)
         })
     })
 }
-
 
 export function updateProduct (id: number) {
     return new Promise<Product>(async(resolve, reject) => {
