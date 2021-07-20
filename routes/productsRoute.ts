@@ -3,6 +3,7 @@ import { createProduct, readProducts, updateProduct, deleteProduct } from '@mode
 
 const app = express()
 
+// TODO dynamically generate routes based on json object
 app.post('/create', (req: Request, res: Response) => {
     const { name, size, material, color } = req.body
     createProduct(name, size, material, color).then(product => {
@@ -12,16 +13,16 @@ app.post('/create', (req: Request, res: Response) => {
     })
 })
 
-app.get('/read', (req: Request, res: Response) => {
-    const filter = req.body
-    readProducts({ ...(filter ? filter: {}) }).then(allProducts => {
+app.get('/api/v1/products/:id?', (req: Request, res: Response) => {
+    const productId = req.params.id
+    readProducts({ ...(productId ? { _id: productId }: {}) }).then(allProducts => {
         res.status(200).send(allProducts)
     }).catch(err => {
         res.status(500).send(err)
     })
 })
 
-app.put('/update', (req: Request, res: Response) => {
+app.patch('/api/v1/product/:id', (req: Request, res: Response) => {
     const id = req.body.id
     const withWhat = req.body.update
     updateProduct(id, withWhat).then(product => {
