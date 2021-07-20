@@ -1,5 +1,5 @@
 import express, { Request, Response } from 'express'
-import { createProduct, readProducts, updateProduct } from '@model/products'
+import { createProduct, readProducts, updateProduct, deleteProduct } from '@model/products'
 
 const app = express()
 
@@ -32,8 +32,12 @@ app.put('/update', (req: Request, res: Response) => {
 })
 
 app.delete('/delete', (req: Request, res: Response) => {
-    // deleteProduct
-    throw new Error('Method Not implemented')
+    const id = req.body.id
+    deleteProduct(id).then(product => {
+        res.status(200).send(product)
+    }).catch(err => {
+        res.status(500).send(err)
+    })
 })
 
 export default app

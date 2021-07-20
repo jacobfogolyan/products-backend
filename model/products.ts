@@ -42,7 +42,7 @@ export function updateProduct (id: string, withWhat: any) {
 
 export function deleteProduct (id: number) {
     return new Promise<Product>(async (resolve, reject) => {
-        productModel.deleteOne({ id }).then((res) => {
+        productModel.deleteOne({ _id: id }).then((res) => {
             resolve(res)
         }).catch(err => {
             reject(err)
