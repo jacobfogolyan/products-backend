@@ -30,9 +30,9 @@ export function readProducts (filter?: any): Promise<Product> {
     })
 }
 
-export function updateProduct (id: number) {
+export function updateProduct (id: string, withWhat: any) {
     return new Promise<Product>(async(resolve, reject) => {
-        productModel.updateOne({ id }).then((res) => {
+        productModel.updateOne({ _id: id }, { ...withWhat }).then((res) => {
             resolve(res)
         }).catch(err => {
             reject(err)

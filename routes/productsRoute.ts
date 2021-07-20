@@ -1,5 +1,5 @@
 import express, { Request, Response } from 'express'
-import { createProduct, readProducts } from '@model/products'
+import { createProduct, readProducts, updateProduct } from '@model/products'
 
 const app = express()
 
@@ -22,8 +22,13 @@ app.get('/read', (req: Request, res: Response) => {
 })
 
 app.put('/update', (req: Request, res: Response) => {
-    // updateProduct
-    throw new Error('Method Not implemented')
+    const id = req.body.id
+    const withWhat = req.body.update
+    updateProduct(id, withWhat).then(product => {
+        res.status(200).send(product)
+    }).catch(err => {
+        res.status(500).send(err)
+    })
 })
 
 app.delete('/delete', (req: Request, res: Response) => {
