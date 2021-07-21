@@ -40,7 +40,7 @@ export function updateProduct (id: string, withWhat: any) {
     })
 }
 
-export function deleteProduct (id: number) {
+export function deleteProduct (id: string) {
     return new Promise<Product>(async (resolve, reject) => {
         productModel.deleteOne({ _id: id }).then((res) => {
             resolve(res)
