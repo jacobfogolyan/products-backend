@@ -5,7 +5,7 @@
     "author": "Jacob Fogolyan <jacob.fogolyan@gmail.com>",
     "license": "MIT",
     "scripts": {
-        "dev": "nodemon --watch 'src/**/*.ts' --exec 'ts-node' -r tsconfig-paths/register src/server.ts --trace-sync-io",
+      "dev": "nodemon --watch 'src/**/*.ts' --exec 'ts-node' -r tsconfig-paths/register src/server.ts --trace-sync-io",
       "mongo": "docker exec -it database mongosh -u root -p products"
     },
     "dependencies": {
