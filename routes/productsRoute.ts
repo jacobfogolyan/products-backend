@@ -22,7 +22,7 @@ app.get('/api/v1/products/:id?', (req: Request, res: Response) => {
     })
 })
 
-app.patch('/api/v1/product/:id', (req: Request, res: Response) => {
+app.patch('/api/v1/product', (req: Request, res: Response) => {
     const id = req.body.id
     const withWhat = req.body.update
     updateProduct(id, withWhat).then(product => {
