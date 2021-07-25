@@ -1,5 +1,11 @@
 import { Client } from '@elastic/elasticsearch'
+import bodybuilder from 'bodybuilder'
+
 const client = new Client({ node: 'http://localhost:9200' })
+const builder = bodybuilder()
+const body = builder.query('match', 'message', 'this is a test')
+
+body.build()
 
 const run = async () => {
 // Let's start by indexing some data
@@ -37,12 +43,7 @@ await client.index({
   // Let's search!
   const { body } = await client.search({
     index: 'game-of-thrones',
-    // type: '_doc', // uncomment this line if you are using Elasticsearch ≤ 6
-    body: {
-      query: {
-        match: { quote: 'winter' }
-      }
-    }
+    body: builder.query('match', 'quote', 'winter')
   })
 
   console.log(body.hits.hits)
