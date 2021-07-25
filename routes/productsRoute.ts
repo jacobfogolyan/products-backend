@@ -1,5 +1,5 @@
 import express, { Request, Response } from 'express'
-import { createProduct, readProducts, updateProduct, deleteProduct } from '@model/products'
+import { createProduct, readProducts, updateProduct, deleteProduct } from '@src/model/products'
 
 const app = express()
 
