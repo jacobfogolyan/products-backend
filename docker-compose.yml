@@ -21,8 +21,8 @@ services:
         volumes:
             - ./docker/elasticsearch7/config/elasticsearch.yml:/usr/share/elasticsearch/config/elasticsearch.yml:ro
         ports:
-            - '9400:9400'
-            - '9500:9500'
+            - '9200:9200'
+            - '9300:9300'
         environment:
             - discovery.type=single-node
             - cluster.name=docker-cluster
