@@ -239,6 +239,13 @@ body-parser@1.19.0:
     raw-body "2.4.0"
     type-is "~1.6.17"
 
+bodybuilder@^2.4.0:
+  version "2.4.0"
+  resolved "https://registry.yarnpkg.com/bodybuilder/-/bodybuilder-2.4.0.tgz#d82d8adea1aa4d39d5887fae7aa0b9634c5222ef"
+  integrity sha512-vN4ebuqBaqjmyRQzygEkGR2KRM5IiRoKChBkola4RBZ5pNzy5l4tRDUVQxMP/UhzhFbjCB7TqCy3hcGoNnb4zw==
+  dependencies:
+    lodash "^4.17.11"
+
 boxen@^4.2.0:
   version "4.2.0"
   resolved "https://registry.yarnpkg.com/boxen/-/boxen-4.2.0.tgz#e411b62357d6d6d36587c8ac3d5d974daa070e64"
@@ -884,6 +891,11 @@ latest-version@^5.0.0:
   integrity sha512-weT+r0kTkRQdCdYCNtkMwWXQTMEswKrFBkm4ckQOMVhhqhIMI1UT2hMj+1iigIhgSZm5gTmrRXBNoGUgaTY1xA==
   dependencies:
     package-json "^6.3.0"
+
+lodash@^4.17.11:
+  version "4.17.21"
+  resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.17.21.tgz#679591c564c3bffaae8454cf0b3df370c3d6911c"
+  integrity sha512-v2kDEe57lecTulaDIuNTPy3Ry4gLGJ6Z1O3vE1krgXZNrsQ+LFTGHVxVjcXPs17LhbZVGedAJv8XZ1tvj5FvSg==
 
 lowercase-keys@^1.0.0, lowercase-keys@^1.0.1:
   version "1.0.1"
