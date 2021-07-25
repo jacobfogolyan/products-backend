@@ -1,6 +1,6 @@
 import express from 'express'
 import { connect } from 'mongoose'
-import productsRoute from '@routes/productsRoute'
+import productsRoute from '@src/controllers/products'
 
 const app = express()
 const port = 8081
