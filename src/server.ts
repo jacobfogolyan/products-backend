@@ -1,6 +1,6 @@
 import express from 'express'
 import { connect } from 'mongoose'
-import productsRoute from '@src/controllers/products'
+import { routes } from '@src/routes'
 
 const app = express()
 const port = 8081
@@ -22,7 +22,11 @@ connect('mongodb://root:products@127.0.0.1:27017/admin',
     }
 )
 
-app.use(productsRoute)
+routes.forEach((route) => {
+    const { method, path, handler } = route;
+    app[method](path, handler);
+});
+  
 
 app.listen(port, () => {
     console.log(`Server is Running on port ${port}`)
