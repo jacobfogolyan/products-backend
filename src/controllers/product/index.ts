@@ -1,8 +1,6 @@
 import express, { Request, Response } from 'express'
 import { createProduct, readProducts, updateProduct, deleteProduct } from '@src/model/products'
 
-const app = express()
-
 export const create = (req: Request, res: Response) => {
     const { name, size, material, color } = req.body
     createProduct(name, size, material, color).then(product => {
