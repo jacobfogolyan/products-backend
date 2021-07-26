@@ -1,5 +1,5 @@
-import express, { Request, Response } from 'express'
-import { createProduct, readProducts, updateProduct, deleteProduct } from '@src/model/products'
+import { Request, Response } from 'express'
+import { createProduct, readProducts, updateProduct, deleteProduct } from '@src/model/product'
 
 export const create = (req: Request, res: Response) => {
     const { name, size, material, color } = req.body
