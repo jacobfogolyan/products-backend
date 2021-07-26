@@ -1,12 +1,9 @@
 import { RequestHandler } from 'express';
-import { create, read, update, deleteMethod } from '@src/controllers/product/handlers'
-import express from 'express' 
+import { create, read, update, deleteMethod } from '@src/controllers/product'
 
-const app = express()
+type method = 'get' | 'post' | 'options' | 'put' | 'delete' | 'patch'
 
-export type method = 'get' | 'post' | 'options' | 'put' | 'delete' | 'patch'
-
-export type Route = {
+type Route = {
   method: method;
   path: string;
   handler: RequestHandler;
