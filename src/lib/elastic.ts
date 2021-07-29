@@ -3,13 +3,10 @@ import bodybuilder from 'bodybuilder'
 
 const client = new Client({ node: 'http://localhost:9200' })
 const builder = bodybuilder()
-const body = builder.query('match', 'message', 'this is a test')
-
-body.build()
 
 const run = async () => {
-// Let's start by indexing some data
-await client.index({
+  // Let's start by indexing some data
+  await client.index({
     index: 'game-of-thrones',
     // type: '_doc', // uncomment this line if you are using Elasticsearch ≤ 6
     body: {
