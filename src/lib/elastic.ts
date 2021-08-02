@@ -1,7 +1,7 @@
 import { Client } from '@elastic/elasticsearch'
 import bodybuilder from 'bodybuilder'
 
-const client = new Client({ node: 'http://localhost:9200' })
+const client = new Client({ node: 'http://localhost:9400' })
 const builder = bodybuilder()
 
 const run = async () => {
